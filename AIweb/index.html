@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロからわかるAI図鑑 - トップページ</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <h1><a href="index.html">ゼロからわかるAI図鑑</a></h1>
+            <button class="nav-toggle" aria-label="メニューを開閉">
+                <span class="hamburger-icon"></span>
+            </button>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="index.html" class="current-page">トップ</a></li>
+                    <li><a href="page1.html">機械学習</a></li>
+                    <li><a href="page2.html">ニューラルネットワーク</a></li>
+                    <li><a href="page3.html">ディープラーニング</a></li>
+                    <li><a href="page4.html">AIの処理フロー</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container page-content">
+        <main>
+            <section class="hero">
+                <div class="hero-text">
+                    <h2>AIって、なんだか難しそう？</h2>
+                    <p>
+                        AI（人工知能）は、もうキミのすぐそばにあるんだ。スマホの音声アシスタント、写真アプリの顔認識、おすすめ動画...ぜんぶAIのおかげ。<br>
+                        このサイトで、AIの「？」を「！」に変えよう！
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-ai.png" alt="AIについて考え込んでいる学生のイラスト" class="hero-image-actual">
+                </div>
+            </section>
+
+            <section class="contents-grid">
+                <h2>学習コンテンツ</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <h3>
+                            <a href="page1.html" class="card-link-cover">機械学習</a>
+                        </h3>
+                        <img src="images/machine-learning.png" alt="機械学習のイメージ図" class="card-image">
+                        <p>AIが賢くなるための基本！データから「学ぶ」ってどういうこと？</p>
+                        <a href="page1.html" class="btn-link">詳しく見る</a>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            <a href="page2.html" class="card-link-cover">ニューラルネットワーク</a>
+                        </h3>
+                        <img src="images/neural-network.png" alt="ニューラルネットワークのイメージ図" class="card-image">
+                        <p>人間の脳をヒントにした仕組み。AIの「考える」部分を覗いてみよう。</p>
+                        <a href="page2.html" class="btn-link">詳しく見る</a>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            <a href="page3.html" class="card-link-cover">ディープラーニング</a>
+                        </h3>
+                        <img src="images/deap-learning.png" alt="ディープラーニングのイメージ図" class="card-image">
+                        <p>今のAIブームの火付け役！もっと深く学ぶってどういうこと？</p>
+                        <a href="page3.html" class="btn-link">詳しく見る</a>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            <a href="page4.html" class="card-link-cover">AIの処理フロー</a>
+                        </h3>
+                        <img src="images/ai-processing-flow.png" alt="フロー図のイメージ図" class="card-image">
+                        <p>AIがどうやってデータを読み込んで、答えを出しているのか、その流れを紹介！</p>
+                        <a href="page4.html" class="btn-link">詳しく見る</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>(C) 2025 AI図鑑</p>
+        </footer>
+    </div> </body>
+</html>
