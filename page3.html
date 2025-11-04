@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ★ルール: titleを「ディープラーニング」ページ用に変更 -->
+    <title>ゼロからわかるAI図鑑 - ディープラーニング</title>
+    
+    <!-- Google Fonts (共通) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- 共通 CSS・JS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <!-- 共通ヘッダー -->
+    <header>
+        <div class="container header-flex">
+            <h1><a href="index.html">ゼロからわかるAI図鑑</a></h1>
+            
+            <button class="nav-toggle" aria-label="メニューを開閉">
+                <span class="hamburger-icon"></span>
+            </button>
+            
+            <!-- ★ルール: ナビの current-page を変更 -->
+            <nav class="global-nav"> 
+                <ul>
+                    <li><a href="index.html">トップ</a></li>
+                    <li><a href="page1.html">機械学習</a></li>
+                    <li><a href="page2.html">ニューラルネットワーク</a></li>
+                    <!-- ★「ディープラーニング」に current-page を付ける -->
+                    <li><a href="page3.html" class="current-page">ディープラーニング</a></li>
+                    <li><a href="page4.html">AIの処理フロー</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+
+    <!-- 共通コンテナ -->
+    <div class="container page-content">
+
+        <!-- ▼▼▼ ここから page3.html 固有のメインコンテンツ ▼▼▼ -->
+        <main class="article-page">
+            
+            <h2>ディープラーニングってなに？📚</h2>
+            
+            <p>
+                ついに来たね、3つ目のテーマ！<br>
+                「ディープラーニング（深層学習）」は、まさに今のAIブームの火付け役。キミが「スゴい！」って思うAIの多くが、この技術を使ってるんだ。
+            </p>
+        
+            <h3>ニューラルネットワークと何が違うの？</h3>
+            <p>
+                「ディープラーニング」っていうのは、実は「機械学習」の勉強法のひとつであり、前のページで学んだ「ニューラルネットワーク」の進化形なんだ。
+            </p>
+            <p>
+                違いは超シンプル。
+                ニューラルネットワークは「入力層・中間層・出力層」の3層構造が基本だったよね。
+                ディープラーニングは、その真ん中の<strong>「中間層（隠れ層）」を、めちゃくちゃ「深く（Deep）」、つまり何層にも何層にも（ときには100層以上！）重ねた</strong>もののこと。
+            </p>
+            <p>
+                層が浅い（中間層が1つか2つ）ニューラルネットワークだと、単純な分析しかできなかった。
+                でも、層をうんと深くしたら、AIはとんでもなく賢くなったんだ！
+            </p>
+        
+            <!-- 記事内画像 (style.cssでデザインされる) -->
+            <figure class="article-image-wrapper">
+                <img src="images/deap-learning.png" alt="ニューラルネットワークとディープラーニングの層の深さの比較" class="article-image">
+                <figcaption class="caption">
+                    中間層が「浅い」のが従来のニューラルネットワーク、「深い」のがディープラーニングだ。
+                </figcaption>
+            </figure>
+        
+            <h3>層が「深い」と、どんないいことがあるの？</h3>
+            <p>
+                なんで層を深くすると賢くなるんだろう？
+                それは、AIが「より複雑な分析」を「自動で」できるようになるからなんだ。
+            </p>
+            <p>
+                例えば、AIに「犬」の画像を認識させるとする。
+            </p>
+            <ul>
+                <li><strong>浅い層（入力層に近い）</strong>: 「あ、なんか線がある」「点がここにある」みたいな、超単純な「部品」を認識する。</li>
+                <li><strong>中くらいの層</strong>: 浅い層からの情報（部品）を組み合わせて、「これは "目" っぽいな」「これは "耳" の形だ」みたいに、少し複雑な「パーツ」を認識する。</li>
+                <li><strong>深い層（出力層に近い）</strong>: 中くらいの層からの情報（パーツ）をさらに組み合わせて、「"目" と "耳" と "鼻" がこの位置関係にある…よし、これは "犬の顔" だ！」と、最終的な判断をする。</li>
+            </ul>
+            <p>
+                昔は「これが "目" だよ」って人間がAIに教える必要があった（これを「特徴量設計」っていうんだけど、超大変だった）。
+                でもディープラーニングなら、AIが<strong>勝手に学ぶべき特徴（どこを見ればいいか）を見つけてくれる</strong>んだ。これが革命的だったんだよ！
+            </p>
+        
+            <h3>ディープラーニングが使われてる例</h3>
+            <p>
+                この「勝手に賢くなる」技術のおかげで、AIは色んなことができるようになった。
+            </p>
+            <ul>
+                <li><strong>画像生成AI</strong>: 「青い空と猫」って言葉から、AIが「青い空とは何か」「猫とは何か」を深い層で理解して、本物みたいな絵を描けるようになった。</li>
+                <li><strong>自動翻訳</strong>: 文の構造とか、単語の微妙なニュアンスとか、複雑なルールをAIが自分で学んで、自然な翻訳ができるようになった。</li>
+                <li><strong>自動運転</strong>: カメラに映った「人」や「車」「信号」を瞬時に、かつ正確に見分けるのに使われてるよ。</li>
+            </ul>
+        
+            <h3>まとめ</h3>
+            <p>
+                ディープラーニングっていうのは、<strong>「ニューラルネットワークの中間層をめちゃくちゃ深くしたもの」</strong>。
+            </p>
+            <p>
+                層が深いから、人間が教えなくてもAIが自分で「何に注目すればいいか」を学べるようになって、画像認識や翻訳みたいな複雑なタスクが一気に得意になったんだ。
+            </p>
+            <p>
+                これでAIの「仕組み」はだいたいOKだね！
+                最後のページでは、このAIたちを「作る」ときの、全体の「流れ」を見てみよう！
+            </p>
+        
+        </main>
+        <!-- ▲▲▲ メインコンテンツはここまで ▲▲▲ -->
+
+
+        <!-- ページ下部ナビゲーション (page2.html と page4.html へのリンク) -->
+        <nav class="page-nav">
+            <a href="page2.html" class="btn-nav prev">
+                <span class="nav-label">⟨ 前へ</span>
+                <span class="nav-title">ニューラルネットワーク</span>
+            </a>
+            <a href="page4.html" class="btn-nav next">
+                <span class="nav-label">次へ ⟩</span>
+                <span class="nav-title">AIの処理フロー</span>
+            </a>
+        </nav>
+
+        <!-- 共通フッター -->
+        <footer>
+            <p>(C) 2025 AI図鑑</p>
+        </footer>
+
+    </div> <!-- .container.page-content の閉じタグ -->
+</body>
+</html>

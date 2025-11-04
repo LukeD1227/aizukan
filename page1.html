@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロからわかるAI図鑑 - 機械学習</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <h1><a href="index.html">ゼロからわかるAI図鑑</a></h1>
+            <button class="nav-toggle" aria-label="メニューを開閉">
+                <span class="hamburger-icon"></span>
+            </button>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="index.html">トップ</a></li>
+                    <li><a href="page1.html" class="current-page">機械学習</a></li>
+                    <li><a href="page2.html">ニューラルネットワーク</a></li>
+                    <li><a href="page3.html">ディープラーニング</a></li>
+                    <li><a href="page4.html">AIの処理フロー</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container page-content">
+
+        <main class="article-page">
+            
+            <h2>機械学習ってなに？🤔</h2>
+            
+            <p>
+                AI図鑑へようこそ！<br>
+                最初のテーマは「機械学習」。なんか難しそう？ 大丈夫、超シンプルに言うと<strong>「AIが賢くなるための勉強法」</strong>のことなんだ。
+            </p>
+            <p>
+                普通のプログラムは、人間が「もしAだったらBをしなさい」って、全部のルールを細かく教え込むよね。でも機械学習は違う。
+                AIに大量の「教科書（＝データ）」を渡して、「このデータから自分でルールやパターンを学んでね！」ってやらせるんだ。
+            </p>
+            <p>
+                例えば、「この画像が犬か猫か当てる」AIを作りたいとする。昔なら「耳がとがってて、ヒゲがこうで…」って人間が犬と猫のルールを必死に考えてた。
+                でも機械学習なら、「これが犬の写真（データ）」「これが猫の写真（データ）」っていう教科書を何千枚も見せるだけ。するとAIが自分で「なるほど、こういう特徴があると犬で、こういう特徴だと猫なんだな」ってルールを学習してくれるんだ。便利だよね！
+            </p>
+        
+            <h3>代表的な2つの勉強法</h3>
+            <p>
+                AIの勉強法（機械学習）には、大きく分けて2つの代表的なスタイルがあるんだ。
+            </p>
+        
+            <h4>1. 教師あり学習</h4>
+            <p>
+                これは、AIにとって一番わかりやすい勉強法。「問題」と「正解」がセットになった教科書（データ）で学ぶやり方さ。
+            </p>
+            
+            <ul>
+                <li>「この写真（問題）」→「これは "犬" です（正解）」</li>
+                <li>「このメール（問題）」→「これは "迷惑メール" です（正解）」</li>
+            </ul>
+            <p>
+                みたいに、先生（人間）が全部マル付けしてくれたドリルを解きまくるイメージ。
+                たくさん練習するうちに、AIは新しい問題（見たことない写真）が出ても、正しく答え（犬か猫か）を予測できるようになるんだ。
+            </p>
+            
+            <figure class="article-image-wrapper">
+                <img src="images/page1-supervised.png" alt="教師あり学習のイメージ図解" class="article-image">
+                <figcaption class="caption">
+                    「問題（画像）」と「正解（ラベル）」をセットで学ぶ「教師あり学習」
+                </figcaption>
+            </figure>
+        
+        
+            <h4>2. 教師なし学習</h4>
+            <p>
+                こっちは逆に、「正解」が一切ない教科書（データ）だけを渡される、ちょっとハードな勉強法。
+                先生（人間）は「このデータ、なんかうまいこと整理しといて！」って言うだけ。
+            </p>
+            <p>
+                AIは「えー、正解ないの？」って困りながらも、データとにらめっこして、自分でパターンや仲間分け（グルーピング）を見つけるんだ。
+            </p>
+            <ul>
+                <li>（たくさんの顧客データ）→「このグループの人たちは、よく似た商品を買ってるな…」</li>
+                <li>（色々な動物の写真）→「こっちは足が4本で、こっちは羽があるぞ…？」</li>
+            </ul>
+            <p>
+                ネットショッピングで「この商品を買った人はこちらも見ています」ってオススメされることあるよね？あれは、教師なし学習が「君と似た行動をしてる人たち（グループ）」を見つけてくれてるおかげなんだ。
+            </p>
+        
+            <figure class="article-image-wrapper">
+                <img src="images/page1-unsupervised.png" alt="教師なし学習のイメージ図解" class="article-image">
+                <figcaption class="caption">
+                    「正解」がないデータから、AIが自分で仲間分け（グルーピング）する「教師なし学習」
+                </figcaption>
+            </figure>
+        
+            <h3>まとめ</h3>
+            <p>
+                機械学習っていうのは、AIがデータから「自分で学ぶ」ための技術のこと。
+                この「教師あり学習」や「教師なし学習」みたいな勉強法があるから、AIは天気予報から、病気の発見、自動運転まで、いろんなスゴいことができるようになってるんだ。
+            </p>
+            <p>
+                まずはこの「機械学習」が、AIが賢くなるための「基本キ」ってことだけ覚えておいてくれ！
+            </p>
+        
+        </main>
+
+        <nav class="page-nav">
+            <a href="index.html" class="btn-nav prev">
+                <span class="nav-label">トップへ</span>
+                <span class="nav-title">🏠 ホーム</span>
+            </a>
+            <a href="page2.html" class="btn-nav next">
+                <span class="nav-label">次へ</span>
+                <span class="nav-title">ニューラルネットワーク ⟩</span>
+            </a>
+        </nav>
+
+        <footer>
+            <p>(C) 2025 AI図鑑</p>
+        </footer>
+
+    </div> </body>
+</html>

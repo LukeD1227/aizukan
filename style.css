@@ -1,0 +1,508 @@
+/* ===== 色の定義（CSS変数） ===== */
+:root {
+    --primary-color: #007bff;   /* キーカラー（青） */
+    --accent-color: #FFC107;    /* アクセントカラー（黄） */
+    --base-color: #FFFFFF;      /* ベースカラー（白） */
+    --text-color: #333333;      /* テキストカラー（濃いグレー） */
+    --bg-color: #f9f9f9;        /* サイト背景色（薄いグレー） */
+}
+
+/* ================================== */
+/* 1. サイト共通スタイル */
+/* ================================== */
+
+/* --- 基本設定 --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "M PLUS Rounded 1c", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* --- 中央寄せコンテナ --- */
+.container {
+    max-width: 960px; /* サイトの最大幅 */
+    width: 100%;      /* ★追加: 狭い時は幅100% */
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* --- ヘッダー (header) --- */
+/* ★変更: header タグ自体は「枠」と「固定」の指定のみ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%; /* 画面幅いっぱい */
+    background-color: var(--base-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid #eee;
+    
+    /* ★削除: display:flex や padding は .header-flex へ移動 */
+}
+
+/* ★追加: ヘッダーの中身（ロゴとナビ）を横並びにするクラス */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* ヘッダーの上下の余白 */
+    flex-wrap: wrap; /* ★追加: 画面が狭い時に折り返す */
+}
+
+/* ★変更: header h1 -> .header-flex h1 */
+.header-flex h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.header-flex h1 a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* --- ナビゲーション (nav) --- */
+/* (変更なし) */
+.global-nav ul { /* ★変更: nav ul -> .global-nav ul */
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* ★追加: ナビ項目が多い時に折り返す */
+    justify-content: flex-end; /* ★追加: 折り返した時に右寄せにする */
+}
+.global-nav li { /* ★変更: nav li -> .global-nav li */
+    margin-left: 20px;
+    margin-top: 5px; /* ★追加: 折り返した時の上下の隙間 */
+}
+.global-nav a { /* ★変更: nav a -> .global-nav a */
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.nav-toggle {
+    display: none; /* ★普段は隠す */
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100; /* ナビより手前に */
+}
+
+/* ボタン内のアイコン（三本線） */
+.hamburger-icon {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: background-color 0.3s;
+}
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: transform 0.3s;
+}
+.hamburger-icon::before {
+    transform: translateY(-8px); /* 上の線 */
+}
+.hamburger-icon::after {
+    transform: translateY(8px); /* 下の線 */
+}
+
+/* ★追加: ナビが開いてる時 (is-active) のボタンスタイル (バツ印) */
+.nav-toggle.is-active .hamburger-icon {
+    background-color: transparent; /* 真ん中の線を消す */
+}
+.nav-toggle.is-active .hamburger-icon::before {
+    transform: translateY(0) rotate(45deg); /* 上の線を傾ける */
+}
+.nav-toggle.is-active .hamburger-icon::after {
+    transform: translateY(0) rotate(-45deg); /* 下の線を傾ける */
+}
+
+.global-nav a:hover { /* ★変更: nav a:hover -> .global-nav a:hover */
+    opacity: 0.7;
+}
+.global-nav a.current-page { /* ★変更: nav a.current-page -> .global-nav a.current-page */
+    border-bottom: 3px solid var(--accent-color);
+    color: var(--text-color);
+}
+
+/* ★追加: メインコンテンツエリア (固定ヘッダーとの重なり防止) */
+.page-content {
+    margin-top: 20px; /* ヘッダーとの間に少し余白 */
+}
+
+/* --- フッター (footer) --- */
+/* (変更なし) */
+footer {
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+/* --- 共通の見出しスタイル --- */
+/* (変更なし) */
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* ================================== */
+/* 2. トップページ固有スタイル */
+/* ================================== */
+
+/* --- ヒーローエリア (.hero) --- */
+/* (変更なし) */
+.hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 30px;
+    padding: 24px; /* ★padding: 40px 0; が上書きされてるので注意 */
+    background-color: var(--base-color);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.hero-text h2 {
+    font-size: 28px;
+    margin-top: 0;
+    border: none;
+}
+.hero-image img.hero-image-actual {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* --- 学習コンテンツ (.contents-grid) --- */
+/* (変更なし) */
+.contents-grid {
+    margin-top: 40px;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* --- カード (.card) --- */
+/* (変更なし) */
+.card {
+    background-color: var(--base-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 16px 0;
+}
+.card h3 a.card-link-cover {
+    text-decoration: none;
+    color: inherit;
+}
+.card h3 a.card-link-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.card h3 {
+    margin-top: 0;
+}
+.card p {
+    flex-grow: 1;
+}
+.btn-link {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--base-color);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
+}
+.btn-link:hover {
+    background-color: #0056b3;
+}
+
+
+/* ================================== */
+/* 4. 記事ページ共通スタイル (page1.html~) */
+/* (※ 3. レスポンシブ は最後に移動) */
+/* ================================== */
+
+/* (変更なし) */
+.article-page {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.article-page strong {
+    color: var(--primary-color);
+    background: linear-gradient(transparent 70%, var(--accent-color) 70%);
+    font-weight: bold; /* 700 を指定してもOK */
+}
+.article-page h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.article-page h4 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.article-page p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.article-page ul {
+    list-style-type: disc;
+    margin-bottom: 20px;
+    background-color: var(--base-color);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px 20px 20px 40px;
+}
+.article-page li {
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+.article-page li:last-child {
+    margin-bottom: 0;
+}
+.article-image-wrapper {
+    margin: 30px auto;
+    text-align: center;
+    max-width: 500px; /* ★追加: 画像コンテナの最大幅を設定 (必要なら調整) */
+}
+.article-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    display: block; /* ★追加: 中央寄せのためにブロック要素にする */
+}
+.caption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* ================================== */
+/* 5. ページ下部ナビゲーション */
+/* ================================== */
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    
+    /* ★追加: 記事エリア(.article-page)と幅を合わせる */
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-nav {
+    display: block;
+    width: 50%;
+    padding: 16px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    background-color: var(--base-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+.btn-nav:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+.btn-nav .nav-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+}
+.btn-nav .nav-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.btn-nav.next {
+    text-align: right;
+}
+
+/* ================================== */
+/* 6. レスポンシブ対応 */
+/* ================================== */
+
+/* ★改善案②: 960px以下で「2列」にする */
+@media (max-width: 960px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ★ 768px以下（タブレット・スマホ共通） */
+@media (max-width: 768px) {
+    
+    /* --- ★改善案①: ヘッダーのハンバーガー化 --- */
+    .header-flex {
+        /* 縦並び (column) にするのをやめて、横並びのままにする */
+        flex-direction: row; 
+        align-items: center; /* 高さを揃える */
+    }
+
+    .nav-toggle {
+        display: block; /* ★ハンバーガーボタンを表示 */
+    }
+
+    .global-nav {
+        /* ★ナビを「ウィンドウ形式」に変更 */
+        display: none;
+        position: absolute; /* ★変更: fixed -> absolute (親の <header> にくっつく) */
+        
+        /* ★変更: 画面右下に配置 */
+        top: 100%; /* header の真下 */
+        right: 16px; /* 画面右端から、.container の padding と同じだけ離す */
+        
+        /* ★変更: サイズ指定 */
+        width: 300px; /* ウィンドウの幅 (お好みで調整OK) */
+        max-width: 90vw; /* 画面幅の90%まで */
+        max-height: 80vh; /* 画面の高さの80%まで */
+        overflow-y: auto; /* 超えたらスクロール */
+
+        /* ★変更: 背景とパディング */
+        background-color: var(--base-color); /* ★変更: 半透明 -> 白(不透明) */
+        /* backdrop-filter は削除 */
+        padding-top: 10px; /* ★変更: 上下paddingを調整 */
+        padding-bottom: 10px;
+
+        /* ★追加: ウィンドウの見た目 */
+        border-radius: 8px; /* 角を丸く */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 影 */
+        border: 1px solid #ddd; /* 枠線 */
+
+        /* ★変更: 中身のレイアウト */
+        flex-direction: column;
+        align-items: stretch; /* ★変更: center -> stretch (項目を幅いっぱいに) */
+    }
+    
+    /* ★JSで .is-active が付いたらナビを表示 (変更なし) */
+    .global-nav.is-active {
+        display: flex; 
+    }
+
+    /* ★変更: リスト項目のスタイル */
+    .global-nav li {
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%;
+        text-align: left; /* ★変更: center -> left (左揃えに) */
+    }
+    
+    /* ★変更: リンクのスタイル */
+    .global-nav a {
+        display: block;
+        padding: 14px 20px; /* ★変更: パディング調整 (少し狭く) */
+        font-size: 1rem;    /* ★変更: フォントサイズ調整 (少し小さく) */
+        border-bottom: 1px solid #eee;
+    }
+    
+    /* ★追加: 最後の項目の下線を消す */
+    .global-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    /* ★変更: 現在地のスタイル */
+    .global-nav a.current-page {
+        border-bottom: 1px solid #eee; /* 下線は他と合わせる */
+        color: var(--primary-color);
+        background-color: #f9f9f9; /* 背景色で目立たせる */
+    }
+
+
+    /* --- ヒーローエリア (.hero) --- */
+    .hero {
+        grid-template-columns: 1fr;
+        
+    }
+
+    .hero-image {
+        /* min-height: 150px; ← 多分これはもう不要かも */
+        
+        /* ★追加: 画像コンテナの最大幅を 300px くらいに制限 */
+        max-width: 300px; 
+        
+        /* ★追加: コンテナ自体を中央揃えにする */
+        margin-left: auto;
+        margin-right: auto;
+
+        /* ★追加: 上のテキストとの間に余白を確保 */
+        margin-top: 20px;}
+
+    /* --- ページ下部ナビ --- */
+    .page-nav {
+        flex-direction: column;
+    }
+    .btn-nav {
+        width: 100%;
+    }
+}
+
+
+/* ★改善案②: 600px以下で「1列」にする */
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
