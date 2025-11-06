@@ -476,6 +476,23 @@ h2 {
 /* ★ 768px以下（タブレット・スマホ共通） */
 @media (max-width: 768px) {
     
+    /* --- コンテナの左パディングを増やす --- */
+    .container {
+        padding-left: 24px;
+        padding-right: 16px;
+    }
+    
+    /* --- 記事ページのタイトルの左パディングを増やす --- */
+    .article-page h2,
+    .article-page h3,
+    .article-page h4 {
+        padding-left: 16px;
+    }
+    
+    .article-page h3 {
+        padding-left: 20px; /* h3は左ボーダーがあるので少し多めに */
+    }
+    
     /* --- ★改善案①: ヘッダーのハンバーガー化 --- */
     .header-flex {
         /* 縦並び (column) にするのをやめて、横並びのままにする */
