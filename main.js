@@ -4,6 +4,55 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==================================
+     ダークテーマ機能
+     ================================== */
+  // 保存されたテーマ設定を読み込む（localStorageから）
+  // 'prefers-color-scheme' は、ユーザーのOSやブラウザの設定を読み取る
+  const getThemePreference = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    // 保存されていない場合は、OSの設定を参照
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  };
+
+  // テーマを適用する関数
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // ボタンのアイコンとタイトルを更新
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+      if (theme === 'dark') {
+        themeToggle.textContent = '☀️';
+        themeToggle.setAttribute('title', 'ライトモードに切り替え');
+      } else {
+        themeToggle.textContent = '🌙';
+        themeToggle.setAttribute('title', 'ダークモードに切り替え');
+      }
+    }
+  };
+
+  // ページ読み込み時に保存されたテーマを適用
+  const currentTheme = getThemePreference();
+  applyTheme(currentTheme);
+
+  // テーマトグルボタンのクリックイベント
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  }
+
+  /* ==================================
      スムーススクロール機能
      ================================== */
   // 'href'属性（リンク先）が '#' で始まる <a> タグを全部見つけてくる
