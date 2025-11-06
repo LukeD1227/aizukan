@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ★ルール: titleを「トランスフォーマー」ページ用に変更 -->
+    <title>ゼロからわかるAI図鑑 - トランスフォーマー</title>
+    
+    <!-- Google Fonts (共通) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- 共通 CSS・JS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <!-- 共通ヘッダー -->
+    <header>
+        <div class="container header-flex">
+            <h1><a href="index.html">ゼロからわかるAI図鑑</a></h1>
+            
+            <div class="header-buttons">
+                <button class="theme-toggle" aria-label="テーマを切り替え" title="ダークモードに切り替え">
+                    🌙
+                </button>
+                <button class="nav-toggle" aria-label="メニューを開閉">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+            
+            <!-- ★ルール: ナビの current-page を変更 -->
+            <nav class="global-nav"> 
+                <ul>
+                    <li><a href="index.html">トップ</a></li>
+                    <li><a href="page1.html">機械学習</a></li>
+                    <li><a href="page2.html">ニューラルネットワーク</a></li>
+                    <li><a href="page3.html">ディープラーニング</a></li>
+                    <li><a href="page4.html">AIの処理フロー</a></li>
+                    <!-- ★「トランスフォーマー」に current-page を付ける -->
+                    <li><a href="page5.html" class="current-page">トランスフォーマー</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+
+    <!-- 共通コンテナ -->
+    <div class="container page-content">
+
+        <!-- ▼▼▼ ここから page5.html 固有のメインコンテンツ ▼▼▼ -->
+        <main class="article-page">
+            
+            <h2>トランスフォーマーってなに？🤖</h2>
+            
+            <p>
+                ようこそ、新しいテーマへ！<br>
+                「ディープラーニング」まで学んだキミなら、もうAIの基本はバッチリだよね。
+                でも、もっとスゴいAIが現れたんだ。それが今回紹介する<strong>「トランスフォーマー（Transformer）」</strong>。
+                実は、今キミが使ってる自動翻訳やチャットボットの多くが、この技術を使ってるんだよ！
+            </p>
+        
+            <h3>「Attention（アテンション）」という魔法</h3>
+            <p>
+                トランスフォーマーの最大の特徴は、<strong>「Attention（注意機構）」</strong>っていう仕組みを採用してることなんだ。
+                これまでのAIと何が違うかっていうと、「データのどの部分を重要視するか」を、AIが自分で「同時に」判断できるようになったことなんだ。
+            </p>
+            <p>
+                例えば、キミが「わたしは昨日、友達と一緒に公園に行きました」っていう文を翻訳したいとする。
+                従来のAIは、この文を「左から右へ」順番に読み込んで、1つずつ単語を処理していった。
+                でもトランスフォーマーは違う。「昨日」「友達」「公園」って単語が、全体の意味を理解する上で「重要だな！」って判断して、それらの単語同士の関係を「同時に」見ることができるんだ。
+            </p>
+
+            <!-- 記事内画像 (style.cssでデザインされる) -->
+            <figure class="article-image-wrapper">
+                <img src="images/page5-transformer.png" alt="トランスフォーマーのアーキテクチャ図解" class="article-image">
+                <figcaption class="caption">
+                    トランスフォーマーは「Attention」機構を使って、文の各部分を「同時に」理解できる。
+                </figcaption>
+            </figure>
+        
+            <h3>なんで「トランスフォーマー」っていう名前なの？</h3>
+            <p>
+                もともと、「トランスフォーマー」は「変換する」って意味の英語。
+                このAIは、入力されたデータ（例えば「日本語の文」）を、別の形（「英語の文」）に「変換」するのが得意だから、その名がついたんだ。
+            </p>
+            <p>
+                でも、変換できるのは翻訳だけじゃない。
+                「質問」を入力したら「答え」に変換する（チャットボット）、「画像」を入力したら「説明文」に変換する（画像認識）…みたいに、いろんなタスクをこなせるんだよ！
+            </p>
+        
+            <h3>トランスフォーマーが使われてる例</h3>
+            <p>
+                この「Attention」機構が強力すぎて、トランスフォーマーはAIの世界を一変させちゃったんだ。
+            </p>
+            <ul>
+                <li><strong>自動翻訳</strong>: Google翻訳とか、DeepLとか。キミが「この文、自然に翻訳されすぎててスゴい！」って思ったら、それはトランスフォーマーのおかげかもしれない。</li>
+                <li><strong>チャットAI</strong>: ChatGPTとか、Claudeとか。キミの質問の「意図」を理解して、自然な答えを返してくれるのは、トランスフォーマーの「Attention」が、質問のどこが重要かを見抜いてるからなんだ。</li>
+                <li><strong>音声認識</strong>: 「OK Google」「Hey Siri」って呼びかけたとき。AIがキミの言葉を正確に文字に変換するのに、トランスフォーマーが使われてるよ。</li>
+                <li><strong>画像生成AI</strong>: 「青い空と猫」って言葉から絵を描くAIも、実はトランスフォーマーの技術をベースに作られてることが多いんだ。</li>
+            </ul>
+
+            <h3>従来のAIと何が違うの？</h3>
+            <p>
+                従来のニューラルネットワークやディープラーニングと比べて、トランスフォーマーがスゴいのは、主に2つのポイントがあるんだ。
+            </p>
+            <ul>
+                <li><strong>並列処理ができる</strong>: 従来のAIは「左から右へ」順番に処理してたけど、トランスフォーマーは「全部のデータを同時に見る」ことができる。だから、処理が速いし、長い文も理解できるんだ。</li>
+                <li><strong>重要な部分に「集中」できる</strong>: 「Attention」機構が、「この単語とこの単語は関係が深いな」って判断して、重要でない部分は無視できる。だから、より「人間らしい」判断ができるようになったんだ。</li>
+            </ul>
+        
+            <h3>まとめ</h3>
+            <p>
+                トランスフォーマーっていうのは、<strong>「Attention（注意機構）」を使って、データの各部分を「同時に」処理し、重要な部分に「集中」できるAIの仕組み</strong>のこと。
+            </p>
+            <p>
+                この技術のおかげで、自動翻訳やチャットAIが、めちゃくちゃ自然で正確になったんだ。
+                キミが使ってる「スゴいAI」の多くが、実はこのトランスフォーマーを使ってる。
+                これで、AIの最新技術までマスターしたね！お疲れ様でした！
+            </p>
+        
+        </main>
+        <!-- ▲▲▲ メインコンテンツはここまで ▲▲▲ -->
+
+
+        <!-- ページ下部ナビゲーション (page4.html と index.html へのリンク) -->
+        <nav class="page-nav">
+            <a href="page4.html" class="btn-nav prev">
+                <span class="nav-label">⟨ 前へ</span>
+                <span class="nav-title">AIの処理フロー</span>
+            </a>
+            <a href="index.html" class="btn-nav next">
+                <span class="nav-label">最初に戻る ⟩</span>
+                <span class="nav-title">🏠 トップページ</span>
+            </a>
+        </nav>
+
+        <!-- 共通フッター -->
+        <footer>
+            <p>(C) 2025 AI図鑑</p>
+        </footer>
+
+    </div> <!-- .container.page-content の閉じタグ -->
+</body>
+</html>
+
